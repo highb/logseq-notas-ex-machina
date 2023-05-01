@@ -46,6 +46,10 @@ module.exports = {
           path.join(__dirname, './src/style.scss'),
         ],
       },
+      {
+        test: /\.wasm$/,
+        type: 'webassembly/async',
+      }
     ],
   },
   plugins: [
@@ -72,4 +76,7 @@ module.exports = {
     extensions: ['.ts', '.js'],
   },
   externals: [],
+  experiments: {
+    asyncWebAssembly: true,
+  },
 };
