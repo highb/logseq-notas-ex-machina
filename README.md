@@ -1,20 +1,22 @@
-# logseq-notas-ex-machina
-LogSeq Plugin that provides fun integrations with various machine models for your notes
+# Webpack Typescript Starter For Logseq Plugin
 
-### Demo
+[![Github All Releases](https://img.shields.io/github/downloads/vipzhicheng-starter/logseq-plugin-starter/total.svg)](https://github.com/vipzhicheng-starter/logseq-plugin-starter/releases)
 
-![demo](./demo.gif)
+A simple webpack typescript starter for Logseq Plugin Development
 
-### API
+## What's in it.
 
-[![npm version](https://badge.fury.io/js/%40logseq%2Flibs.svg)](https://badge.fury.io/js/%40logseq%2Flibs)
+* Just a hello world for now.
+* No vue/react included.
 
-##### Logseq.Editor
+## How to use it.
 
-- `registerSlashCommand: (this: LSPluginUser, tag: string, actions: Array<SlashCommandAction>) => boolean`
-- `showMsg: (content: string, status?: 'success' | 'warning' | string) => void`
-    - content support  [hiccups](https://github.com/weavejester/hiccup) string
+1. Clone
+2. Run `npm install`
+3. Run `npm run build`
+4. In logseq, click `Plugins` which is in right top dropdown menu
+5. Click `Load unpacked plugin` button and select the `dist` sub directory.
+6. If plugin not work, you can try to disable and enable the plugin by clicking the switch button on Plugins page.
 
-### Running the Sample
-
-- `Load unpacked plugin` in Logseq Desktop client.
+## Licence
+MIT
