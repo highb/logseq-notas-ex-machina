@@ -1,15 +1,12 @@
-# Webpack Typescript Starter For Logseq Plugin
+# Notas Ex Machina: A LogSeq Plugin to Interface with our AI Overlords
 
-[![Github All Releases](https://img.shields.io/github/downloads/vipzhicheng-starter/logseq-plugin-starter/total.svg)](https://github.com/vipzhicheng-starter/logseq-plugin-starter/releases)
+A simple typescript Logseq Plugin that connects to OpenAI's API using the LangChain framework.
 
-A simple webpack typescript starter for Logseq Plugin Development
+## Demo
 
-## What's in it.
+![Demo](demo.mkv)
 
-* Just a hello world for now.
-* No vue/react included.
-
-## How to use it.
+## Development
 
 1. Clone
 2. Run `npm install`
@@ -19,4 +16,5 @@ A simple webpack typescript starter for Logseq Plugin Development
 6. If plugin not work, you can try to disable and enable the plugin by clicking the switch button on Plugins page.
 
 ## Licence
+
 MIT
