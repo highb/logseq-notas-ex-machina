@@ -1,9 +1,31 @@
 import '@logseq/libs';
+import { SettingSchemaDesc } from '@logseq/libs/dist/LSPlugin.user';
 import { ChatOpenAI } from "langchain/chat_models/openai";
 import { HumanChatMessage, SystemChatMessage } from "langchain/schema";
 
+let openAIApiKey = "";
+const settingsSchema: SettingSchemaDesc[] = [
+  {
+    key: "openAIApiKey",
+    default: "",
+    description: "OpenAI API Dev Token",
+    title: "OpenAI API Token",
+    type: "string",
+  },
+]
+
+function onSettingsChange() {
+  logseq.UI.showMsg('Plugin settings changed!');
+  openAIApiKey = logseq.settings?.openAIApiKey;
+}
+
 async function main() {
   logseq.UI.showMsg('Plugin started load: Hello, LogSeq!');
+
+  onSettingsChange();
+  logseq.onSettingsChanged(onSettingsChange);
+  // Set configuration screen for the OpenAI API key
+
 
   logseq.Editor.registerSlashCommand(
     'Show Block in Message',
@@ -49,13 +71,12 @@ async function main() {
       if (block) {
         const { content, uuid } = block;
         
-        const chat = new ChatOpenAI({ temperature: 0 });
-        // const response = await chat.call([
-        //   new HumanChatMessage(content),
-        // ]);
-        // Append "Hello, LogSeq!" in a new block as a child of the current block
-        // let insertedBlock = await logseq.Editor.insertBlock(
-        //   block.uuid, `Response: ${response}`);
+        const chat = new ChatOpenAI({ temperature: 0, openAIApiKey: openAIApiKey });
+        const response = await chat.call([
+          new HumanChatMessage(content),
+        ]);
+        let insertedBlock = await logseq.Editor.insertBlock(
+          block.uuid, `${response.text}`);
           
         
       } else {
@@ -65,4 +86,4 @@ async function main() {
   )
 
 }
-logseq.ready(main).catch(console.error);
+logseq.useSettingsSchema(settingsSchema).ready(main).catch(console.error);
