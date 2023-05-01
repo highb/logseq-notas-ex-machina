@@ -4,7 +4,7 @@ A simple typescript Logseq Plugin that connects to OpenAI's API using the LangCh
 
 ## Demo
 
-![Demo](demo.mkv)
+![Demo](demo.mp4)
 
 ## Development
 
