@@ -1,5 +1,5 @@
 {
-  "name": "logseq-plugin-starter",
+  "name": "Notas ex Machina",
   "version": "0.0.1",
   "license": "MIT",
   "main": "index.html",
@@ -9,6 +9,7 @@
   "scripts": {
     "start": "webpack serve --config=webpack.config.js --devtool=source-map --mode=development --port=3001",
     "build": "webpack --config=webpack.config.js --devtool=source-map --mode=development",
+    "build:watch": "webpack --config=webpack.config.js --devtool=source-map --mode=development --watch",
     "build:prod": "webpack --config=webpack.config.js --mode=production"
   },
   "devDependencies": {
